@@ -62,8 +62,11 @@ public class RankView extends JPanel implements View {
     }
 
 
-    public static Object initData(List<Player> players){
-        if(players==null) return null;
+
+
+
+    public static void showData(List<Player> players){
+        if(players==null) return;
         Object[][] data = new Object[players.size()][columnNames.length];
         for (int i = 0; i < players.size(); i++) {
             data[i][0] = i + 1;
@@ -72,18 +75,8 @@ public class RankView extends JPanel implements View {
             data[i][3] = players.get(i).getType();
             data[i][4] = players.get(i).getTime() + "s";
         }
-        return data;
-    }
-
-   public static void updateData(Object data){
-        if(data==null) return;
-       DefaultTableModel model = (DefaultTableModel) table.getModel();
-       model.setDataVector((Object[][]) data, columnNames);
-   }
-
-    public static void showData(List<Player> players){
-        Object data=initData(players);
-        updateData(data);
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setDataVector(data, columnNames);
         scrollPane.setViewportView(table);
     }
 

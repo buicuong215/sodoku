@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Utils {
     private static String[] path={
-            "C:\\Users\\admin\\Desktop\\JAVA1\\sodoku\\src\\data\\level.txt",
-            "C:\\Users\\admin\\Desktop\\JAVA1\\sodoku\\src\\data\\data.txt"
+            "src\\data\\level.txt",
+            "src\\data\\data.txt"
     };
 
 
@@ -24,6 +24,8 @@ public class Utils {
     }
 
     public static List<String> getLevel(){
+       // File file=new File(path[0]);
+       // System.out.println(file.getAbsoluteFile());
         List<String> data=new ArrayList<>();
         FileReader fileReader=null;
         BufferedReader bufferedReader=null;

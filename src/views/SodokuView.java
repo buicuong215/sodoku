@@ -24,13 +24,12 @@ public class SodokuView extends JPanel implements View {
     private final Game game;
     private JButton[][] buttonNumber = new JButton[Constants.REAL_SIZE+1][Constants.REAL_SIZE+1];
     private boolean init=false;
-
-
     @Override
     public void initView() {
         SodokuController sodokuController=new SodokuController(this,game, timeView);
         setPreferredSize(new Dimension(500, 500));
-        JPanel sodokuContainer=new JPanel();
+        JPanel sodokuContainer=new JPanel(new GridLayout(3, 3,2,2));
+        sodokuContainer.setBorder(BorderFactory.createEmptyBorder(3,3, 3, 3));
         JPanel[] block= new JPanel[Constants.REAL_SIZE+1];
         GridLayout gridLayout=new GridLayout(3,3);
         LineBorder lineBorder=new LineBorder(Color.BLACK, 1);
@@ -51,8 +50,7 @@ public class SodokuView extends JPanel implements View {
                 block[node.getZone()].add(buttonNumber[i][j]);
             }
         }
-        sodokuContainer.setLayout(new GridLayout(3, 3,2,2));
-        sodokuContainer.setBorder(BorderFactory.createEmptyBorder(3,3, 3, 3));
+
         this.setLayout(new BorderLayout());
         this.add(timeView,BorderLayout.NORTH);
         this.add(sodokuContainer,BorderLayout.CENTER);
